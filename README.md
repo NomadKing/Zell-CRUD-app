@@ -1,0 +1,1 @@
+Simple CRUD app to learn the basics
