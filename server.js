@@ -6,7 +6,7 @@ const PORT = 3000;
 
 const connectionString = 'mongodb+srv://admin:admin@Cluster0.bygkd.mongodb.net/?retryWrites=true&w=majority'
 
-MongoClient.connect(process.env.connectionString || connectionString)
+MongoClient.connect(process.env.MONGODB_URI || connectionString)
     .then(client => {
         console.log('Connected to Database')
 
