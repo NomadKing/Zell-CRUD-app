@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const MongoClient =require('mongodb').MongoClient
 const app = express();
+const PORT = 3000;
 
 const connectionString = 'mongodb+srv://admin:admin@Cluster0.bygkd.mongodb.net/?retryWrites=true&w=majority'
 
@@ -12,7 +13,7 @@ MongoClient.connect(connectionString)
         const db = client.db('star-war-quotes')
         const quotesCollection = db.collection('quotes')
 
-        app.listen(3000, function() {console.log('listening on 3000')})    
+        app.listen(process.env.PORT || PORT, function() {console.log('listening on 3000')})    
 
         app.set('view engine', 'ejs')
 
