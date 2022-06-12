@@ -37,7 +37,7 @@ MongoClient.connect(process.env.MONGODB_URI || connectionString,  {
         })
 
         app.post('/quotes', (req, res) => {
-            quotesCollection.insertOne(req)
+            quotesCollection.insertOne(req.body)
                 .then(result => {
                     console.log(result)
                     res.redirect('/')
