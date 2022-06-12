@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser')
 const MongoClient =require('mongodb').MongoClient
 const app = express();
 const PORT = 3000;
@@ -22,9 +21,9 @@ MongoClient.connect(process.env.MONGODB_URI || connectionString,  {
 
         app.use(express.static('public'))
 
-        app.use(bodyParser.json())
+        app.use(express.json())
 
-        app.use(bodyParser.urlencoded({extended: true}))
+        app.use(express.urlencoded({extended: true}))
 
         app.get('/', (req, res) => {
             db.collection('quotes').find().toArray()
